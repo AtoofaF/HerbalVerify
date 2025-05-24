@@ -1,0 +1,111 @@
+body {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    width: 100%;
+    height: 100vh; 
+    font-family: "Merriweather", serif;
+    font-optical-sizing: auto;
+    font-weight:normal;
+    background: linear-gradient(to bottom,  #f9ebd1, #adadad);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    margin: 0;
+    font-family: 'Exo 2', sans-serif;
+    color: #333;
+}
+
+.navbar {
+    background: linear-gradient(to right, #1A4D2E, #81C784);
+}
+
+.dropdown-menu-end {
+right: 0;
+left: auto;
+}
+
+/* Adjusting the margin of the "Post" tab */
+.nav-item.dropdown:last-child {
+margin-right: 20px; /* Adjust the right margin as needed */
+}
+
+.navbar-nav .nav-link {
+text-shadow: #000 -2px 2px 2px;
+color:#f4f4f4;
+font-weight: bold;
+font-size:20px;
+}
+
+.dd-menu-custom {
+background-color: #244330; 
+}
+
+.dd-item-custom {
+    color: #fff;    
+}
+
+.footer {
+    position: relative;
+    bottom: 0;
+    display: flex;
+    justify-content: space-between; /* Spread the children to left and right corners */
+    padding: 10px;
+    background: linear-gradient(to right, #1A4D2E, #81C784);
+    align-items: flex-start; /* Align items to the top */
+}
+
+.footer-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start; /* Align the content to the start (top) */
+}
+
+.linked-pages {
+    display: flex;
+    flex-direction: column; /* Arrange links in a column */
+    text-align: left;
+    margin-bottom: 10px; /* Add space below the links */
+}
+
+.linked-pages a {
+    display: block; /* Ensure each link is on a new line */
+    text-decoration: none;
+    color: #ffffff;
+    font-weight: bold;
+    text-shadow: #000 -2px 2px 2px;
+    font-size: 20px; /* Adjust font size as needed */
+    margin-bottom: 5px; /* Add space between links */
+}
+
+.footer .logo {
+    align-self: flex-start; /* Align the logo to the start of the footer-content */
+}
+
+.footer-image {
+    align-self: flex-end; /* Align the image to the end (right) */
+    position: relative; /* Allow absolute positioning of the text */
+    margin-bottom: 10px;
+}
+
+.footer-image img {
+    display: block;
+}
+
+.footer {
+    position: relative;
+}
+
+.footer-image {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+}
+
+.linked-pages {
+    position: absolute;
+    bottom: 0;
+    right: 80px; /* Adjust to position text relative to image */
+}

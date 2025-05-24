@@ -1,0 +1,121 @@
+
+.search-container {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.search-form {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.search-input {
+    width: 400px;
+    padding: 10px;
+    border-radius: 5px;
+    border: 2px solid #bbbbbb;
+    font-size: 16px;
+}
+
+.search-button {
+    background-color: #5da15f;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-left: 10px;
+    font-size: 16px;
+}
+
+.search-button:hover {
+    background-color: #449247;
+    color: #1c0202;
+}
+
+.search-results {
+    margin-top: 20px;
+}
+
+.search-results h2 {
+    font-size: 24px;
+    margin-bottom: 10px;
+    color: #020101;
+}
+
+.search-results ul {
+    list-style-type: none;
+    font-size: 18px;
+    padding: 0;
+}
+
+.search-results li {
+    background-color: #fff;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: box-shadow 0.3s ease;
+}
+
+.search-results li:hover {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.search-results li p {
+    margin: 0;
+    color: #1d0808;
+    font-size: 18px;
+}
+
+.container1 {
+    height: 300px;
+    width: 100%;
+    border: 2px solid rgb(61, 6, 6);
+    position: relative;
+    background-image: url('ad3.avif');
+    background-size: cover;
+    background-position: center;
+    color: black;
+    text-align: center;
+}
+
+
+.words{
+    background-color: #f8f9fac8; /* Change this to your desired background color */
+    padding: 20px;
+    height: 200px;
+    width: 800px;
+    border-radius: 5px;
+    text-align: center;
+}
+.container1 h2 {
+    font-size: 38px;
+    border-bottom: 2px solid rgb(61, 6, 6) ;
+    border-top: 2px solid #3d0606;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    margin: 0;
+    /* line-height: 100px; */
+}
+
+.container1 h3 {
+    position: absolute;
+    top: 60%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    margin: 0;
+    /* line-height: 100px; */
+}
+
+.container h2{
+    margin-top:20px ;
+    color:#1c0202 ;
+    border-bottom: #3d0606 solid;
+}
