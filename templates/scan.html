@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scan Page</title>
+    <link rel="stylesheet" href="/static/scan.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+        crossorigin="anonymous"></script>
+        <link rel="stylesheet" href="../static/navbar.css">
+<link href="https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@0,100;0,300;0,600;1,100;1,300;1,600&family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
+
+    <style>
+        a {
+            text-decoration: none;
+            color: black;
+        }
+    </style>
+     <script>
+        function showDropdown(element) {
+        var dropdownMenu = element.querySelector('.dropdown-menu');
+        dropdownMenu.classList.add('show');
+    }
+
+    function hideDropdown(element) {
+        var dropdownMenu = element.querySelector('.dropdown-menu');
+        dropdownMenu.classList.remove('show');
+    }
+    </script>
+</head>
+
+<body>
+    <section class="header">
+        <nav class="navbar navbar-expand-lg navbar-light">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="#">
+                    <label style="font-size: 30px;">
+                        <img src="/static/herbalverify.jpg" width="55px" height="55px" alt="">
+                        <b style="color: #F5EFE6;">PlantDetect</b>
+                    </label>
+                    <p style="font-size: 10px; margin-top: -20px; color: #F5EFE6;  margin-left: 65px;">Identify and Protect Your Plants</p>
+                </a>
+            </div>
+            <div class="nav-menu">
+                <div class="container-fluid">
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
+                        aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                        <ul class="navbar-nav">
+                            <li class="nav-item">
+                                <a class="nav-link" href="/home">Home</a>
+                            </li>
+                            <li class="nav-item dropdown" onmouseover="showDropdown(this)" onmouseout="hideDropdown(this)">
+                                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink1" role="button"
+                                    data-bs-toggle="dropdown" aria-expanded="false">
+                                    Services
+                                </a>
+                                <ul class="dropdown-menu dd-menu-custom" aria-labelledby="navbarDropdownMenuLink1">
+                                    <li><a class="dropdown-item dd-item-custom" href="/scan">Scan</a></li>
+                                    <li><a class="dropdown-item dd-item-custom" href="/scanDisease">Disease Detection</a></li>
+                                    <li><a class="dropdown-item dd-item-custom" href="/uploadDoc">Doctor Registration</a></li>
+                                    <li><a class="dropdown-item dd-item-custom" href="/doctor_data">Doctors</a></li>
+                                    <li><a class="dropdown-item dd-item-custom" href="/homeRemedies">Home Remedies</a></li>
+                                
+                                </ul>
+                            </li>
+                            <li class="nav-item dropdown" onmouseover="showDropdown(this)" onmouseout="hideDropdown(this)">
+                                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink2" role="button"
+                                    data-bs-toggle="dropdown" aria-expanded="false">
+                                    Shop
+                                </a>
+                                <ul class="dropdown-menu dd-menu-custom" aria-labelledby="navbarDropdownMenuLink2">
+                                    <li><a class="dropdown-item dd-item-custom" href="/nursery">Nursery</a></li>
+                                    <li><a class="dropdown-item dd-item-custom" href="/ayurvedicShop">Ayurvedic Shop</a></li>
+                                </ul>
+                            </li>
+                            <li class="nav-item dropdown" onmouseover="showDropdown(this)" onmouseout="hideDropdown(this)">
+                                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink3" role="button"
+                                    data-bs-toggle="dropdown" aria-expanded="false">
+                                    Posts
+                                </a>
+                                <ul class="dropdown-menu dropdown-menu-large dd-menu-custom" aria-labelledby="navbarDropdownMenuLink3">
+                                    <li><a class="dropdown-item dd-item-custom" href="/post">View Posts</a></li>
+                                    <li><a class="dropdown-item dd-item-custom" href="/submitPost">Post Text</a></li>
+                                    <li><a class="dropdown-item dd-item-custom" href="/adminPost">Admin Post</a></li>
+                                </ul>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link"  href="/">Sign Out</a>
+                            </li>
+                        </ul> 
+                    </div> 
+                </div>
+            </div>
+    </section>
+    <div class="container1">Medicinal Plant Detection Using Leaves</div>
+
+    <input type="file" accept="image/*" onchange="previewImage(event)">
+
+    <div id="label-container" style="text-align:center ; margin-top: 20px;"></div> <!-- Add margin-top for spacing -->
+
+    <div class="data">
+        {% if plantData %}
+        <h1><b>{{ plantData.pname }}</b></h1>
+        <p><b>A.Information:</b><br>{{ plantData.inf }}</p>
+        <p><b>B.Cultivation:</b><br>{{ plantData.cult }}</p>
+        <p><b>C.Required Environment:</b><br> {{ plantData.reenv }}</p>
+        <p><b>D.Ingredients and contents:</b><br>{{ plantData.ing }}</p>
+        <p><b>E.Human Disease cure And Procedure:</b><br>{{ plantData.hum }}</p>
+        <p><b>F.Botanical Description:</b><br>{{ plantData.bot }}</p>
+        {% else %}
+        <h6 style=" color: black; font-size: 20px;">No data available for the predicted plant</h6>
+        {% endif %}
+    </div>
+    
+    <h6 style="font-size: 22px; color: black; font-weight: bold;"><span style="color: red;" >Note: </span> Please upload a close up image of a single of the medicinal plant.</h6>
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@latest/dist/tf.min.js"></script>
+    <script
+        src="https://cdn.jsdelivr.net/npm/@teachablemachine/image@latest/dist/teachablemachine-image.min.js"></script>
+    <script type="text/javascript">
+
+        const URL = "./static/my_model/";
+
+
+        let model, labelContainer, maxPredictions;
+
+        // Load the image model
+        async function init() {
+            const modelURL = URL + "model.json";
+            const metadataURL = URL + "metadata.json";
+
+            model = await tmImage.load(modelURL, metadataURL);
+            maxPredictions = model.getTotalClasses();
+
+            labelContainer = document.getElementById("label-container");
+            for (let i = 0; i < maxPredictions; i++) {
+                labelContainer.appendChild(document.createElement("div"));
+            }
+        }
+
+        async function previewImage(event) {
+            const file = event.target.files[0];
+            const image = new Image();
+            const reader = new FileReader();
+
+            reader.onload = async function () {
+                image.src = reader.result;
+                image.onload = async function () {
+                    const canvas = document.createElement("canvas");
+                    canvas.width = 200; // Set desired width
+                    canvas.height = 200; // Set desired height
+                    const ctx = canvas.getContext("2d");
+                    ctx.drawImage(image, 0, 0, canvas.width, canvas.height);
+                    const prediction = await model.predict(canvas);
+                    let highestPrediction = { className: "", probability: -1 };
+                    for (let i = 0; i < maxPredictions; i++) {
+                        if (prediction[i].probability > highestPrediction.probability) {
+                            highestPrediction = prediction[i];
+                        }
+                    }
+                    if (highestPrediction.probability >= 0.8) { // Check if probability is greater than or equal to 80%
+                        // Clear the label container
+                        labelContainer.innerHTML = "";
+                        // Add the new content
+                        labelContainer.innerHTML = highestPrediction.className + ": " + highestPrediction.probability.toFixed(2);
+                        // Store the highest prediction class in a hidden input field
+                        document.getElementById("prediction_class").value = highestPrediction.className;
+                        // Append probability to the output
+                        labelContainer.innerHTML += "<br>Probability: " + (highestPrediction.probability * 100).toFixed(2) + "%";
+                        // Submit the form to get the plant data
+                        document.getElementById("prediction_form").submit();
+                    } else {
+                        labelContainer.innerHTML = "Sorry Not Recognize,Please try again.";
+                    }
+                };
+            };
+            reader.readAsDataURL(file); // Read the uploaded file as a data URL
+        }
+
+    </script>
+    <script>
+        // Initialize the model when the page loads
+        window.onload = function () {
+            init();
+        };
+    </script>
+    <!-- Hidden form to submit prediction class -->
+    <form id="prediction_form" method="post" action="/scan">
+        <input type="hidden" id="prediction_class" name="prediction_class">
+    </form>
+    <div class="footer">
+        <div class="footer-content">
+            <div class="linked-pages"> 
+                <a href="">About us</a>
+                <a href="">Contact us</a>
+            </div>
+            <div class="logo">
+                <img src="../static/herbalverify.jpg" alt="logo" height="80px" width="80px">
+            </div>
+        </div>
+        <div class="footer-image">
+            <img src="../static/footer.png" alt="footer-plant" height="80px" width="80px">
+        </div>
+    </div>
+</body>
+
+</html>
